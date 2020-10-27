@@ -33,14 +33,15 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <header-file src="src/ios/FirebaseAuthenticationPlugin.h" />
         <source-file src="src/ios/FirebaseAuthenticationPlugin.m" />
 
-        <podspec>
-            <config>
-                <source url="https://cdn.cocoapods.org/"/>
-            </config>
-            <pods>
-                <pod name="Firebase/Auth" spec="$IOS_FIREBASE_AUTH_VERSION" />
-            </pods>
-        </podspec>
+		<framework src="PushKit.framework"/>
+
+		<podspec>
+		  <!-- keep empty `config` object to prevent `cordova-common` install issues.-->
+		  <config></config>
+		  <pods use-frameworks="true">
+			<pod name="Firebase/Auth" spec="~> 6.32.2" />
+		  </pods>
+		</podspec>
     </platform>
 
     <platform name="android">
